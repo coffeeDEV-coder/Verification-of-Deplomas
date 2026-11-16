@@ -1,0 +1,42 @@
+Educational project for the course Introduction to Finance. Not a real product, service or investment offer. Do not use with real funds.
+
+# DiplomaProof — Blockchain Credential Verification Prototype
+
+**Course:** Introduction to Finance (Final Project), Astana IT University, 2026–2027  
+**Supervisor:** Nurkhat Ibadildin, Associate Professor  
+**Team Members:** Dias Nazarov, Zhamilya Kharagussova  
+**GitHub Repository:** [Insert GitHub Link Here]  
+**Demo Video:** [Insert Google Drive Link Here]  
+
+---
+
+## 1. Overview
+**DiplomaProof** is a blockchain-based platform designed for issuing and verifying academic diplomas and professional certificates. To comply with personal data protection standards (such as the Kazakhstan Law on Personal Data and Their Protection), all sensitive student information, transcripts, and PDF documents are stored off-chain in encrypted storage. Only cryptographic commitments—specifically **salted SHA-256 Merkle roots** and revocation statuses—are anchored on-chain via a smart contract deployed on the Polygon PoS test environment.
+
+### Key Features
+* **Role-Based Access Control (RBAC):** Built using OpenZeppelin `AccessControl`, defining platform administrators (`DEFAULT_ADMIN_ROLE`) and approved educational issuers (`ISSUER_ROLE`).
+* **Weekly Merkle Batching:** Combines multiple credential hashes into a single Merkle tree, anchoring one root weekly to optimize transaction costs and gas efficiency.
+* **Revocation Mechanism:** Enables issuers to invalidate compromised or revoked certificates securely.
+* **Public Verification:** Allows any verifier (employers, universities, HR agencies) to check a credential's authenticity independently, yielding three clear states: `Valid`, `Revoked`, or `Unknown`.
+
+---
+
+## 2. Technical Architecture & Tech Stack
+* **Blockchain:** Polygon PoS / Local Hardhat EVM development network.
+* **Smart Contracts:** Solidity `0.8.24`, OpenZeppelin Contracts (`AccessControl`, `MerkleProof`).
+* **Off-Chain Components:** Node.js, Express API, `merkletreejs` for cryptographic batching, SHA-256 hashing with unique salts.
+* **Testing:** Hardhat testing framework with Chai assertions.
+
+---
+
+## 3. Getting Started & Installation
+
+### Prerequisites
+* Node.js (v18 or higher recommended)
+* npm (Node Package Manager)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/](https://github.com/)<team-account>/diplomaproof-prototype.git
+   cd diplomaproof-prototype
